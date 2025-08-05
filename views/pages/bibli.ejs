@@ -1,0 +1,19 @@
+<div>
+    <h1>Bibliothéque</h1>
+</div>
+
+<div>
+    <div>
+        <% documents.forEach(doc => {  %>
+            <div>
+                <h2><%= doc.name %></h2>
+                <p><%= doc.description %></p>
+                <p>Date: <%= doc.createdAt %></p>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<div>
+    <a href="/ajouter-document"><button>Ajouter</button></a>
+</div>
