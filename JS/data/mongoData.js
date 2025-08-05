@@ -1,0 +1,25 @@
+const mongoose = require('mongoose');
+
+// TODO Document data
+const Document = require('../model/Document');
+const dataDocuments = require('./dataDocument');
+
+// TODO Category data
+const Category = require('../model/Category');
+const categories = require('./dataCategory');
+
+module.exports = async () => {
+    try {
+        await mongoose.connect('mongodb://localhost:27017/Hackathon')
+        console.log('MongoDB connected');
+
+        // await Document.insertMany(dataDocuments);
+        // console.log('Documents inserted successfully');
+
+        // await Category.insertMany(categories);
+        // console.log('Categories inserted successfully');
+    } catch (err) {
+        throw err;
+            
+    }
+ }
