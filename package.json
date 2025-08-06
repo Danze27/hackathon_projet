@@ -1,4 +1,19 @@
 {
+  "name": "hackathon_projet",
+  "version": "1.0.0",
+  "description": "Projet",
+  "homepage": "https://github.com/Danze27/hackathon_projet#readme",
+  "bugs": {
+    "url": "https://github.com/Danze27/hackathon_projet/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danze27/hackathon_projet.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
   "scripts": {
     "dev": "nodemon ./JS/app.js"
   },
