@@ -10,8 +10,7 @@ const authRoutes = require("./routes/authRoutes");
 // TODO Fichiers
 const connectMongoDB = require("./data/mongoData");
 const routerPage = require("./routes/routePage");
-const router = require("./routes/routePage");
-const connectMongoDB = require("./data/mongoData");
+const authPage = require("./routes/authRoutes");
 
 // TODO Coniguration ejs
 app.set("view engine", "ejs");
