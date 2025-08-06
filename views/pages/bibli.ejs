@@ -1,19 +1,43 @@
-<div>
-    <h1>Bibliothéque</h1>
-</div>
+<div class="container my-5">
 
-<div>
+  <!-- Boutons en haut -->
+ <div class="bg-dark text-white p-3 rounded-top d-flex align-items-center justify-content-between">
     <div>
-        <% documents.forEach(doc => {  %>
-            <div>
-                <h2><%= doc.name %></h2>
-                <p><%= doc.description %></p>
-                <p>Date: <%= doc.createdAt %></p>
-            </div>
-        <% }) %>
+      <label for="filterCategorie" class="form-label mb-0">Filtrer par catégorie :</label>
+      <select id="filterCategorie" class="form-select w-auto d-inline-block ms-2">
+        <option value="all">Toutes</option>
+        <option value="Santé">Santé</option>
+        <option value="Education">Education</option>
+      </select>
     </div>
-</div>
+    <a href="/ajouter-document"><button type="button" class="btn btn-success">Ajouter</button></a>
+  </div>
 
-<div>
-    <a href="/ajouter-document"><button>Ajouter</button></a>
+  <!-- Tableau -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped mb-0">
+      <thead class="text-white" style="background-color: #79d0d6;">
+        <tr>
+          <th>Nom du document</th>
+          <th>Catégorie</th>
+          <th>Format</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% documents.forEach(doc => { %>
+        <tr>
+          <td> <%= doc.name %></td>
+          <td><%= doc.category.name %></td>
+          <td><%= doc.format %></td>
+          <td><%= doc.description %></td>
+          <td><%= new Date(doc.createdAt).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }) %></td>
+          <td><a href=" " class="text-primary fw-bold">Télécharger</a></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
 </div>

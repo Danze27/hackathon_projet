@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const controllerDocument = require("../controller/controllerDocument");
+const categories = require("../data/dataCategory");
 
 // TODO Pages d'accueil
 router.get("/", (req, res) => {
@@ -10,7 +11,10 @@ router.get("/", (req, res) => {
 
 // TODO Page de la bibliothéque
 router.get("/bibliotheque", controllerDocument.index);
+router.get("/ajouter-document", (req, res) => {
+    res.render("pages/add-doc", { title: "Ajouter un document", categories });
+});
 
-router.post("/ajouter-document", controllerDocument.create);
+router.post("/add-document", controllerDocument.create);
 
 module.exports = router;

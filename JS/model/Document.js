@@ -4,6 +4,7 @@ const documentSchema = new mongoose.Schema({
     _id: {type : mongoose.Schema.Types.ObjectId, auto: true},
     name: String,
     description: String,
+    format: String,
     category: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category'

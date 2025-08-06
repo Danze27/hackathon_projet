@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-center align-items-center p-3 border-box">
+    <form action="/add-document" method="POST"
+        class="form-container d-flex flex-column justify-content-center p-4 rounded">
+        <h3>Ajouter un document</h3>
+
+        <div class="mb-3">
+            <label for="name" class="form-label form-label-custom">Nom du document</label>
+            <input type="text" id="name" name="name" class="form-control form-control-custom" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="name" class="form-label form-label-custom">Fichier</label>
+            <input type="file" id="fichier" name="fichier" class="form-control form-control-custom" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="category" class="form-label form-label-custom">Catégorie</label>
+            <select id="category" name="category" class="form-select form-select-custom" required>
+                <option value="" disabled selected>-- Sélectionner --</option>
+                <option value="Technologie">Technologie</option>
+                <option value="Santé">Santé</option>
+                <option value="Finance">Finance</option>
+                <option value="Éducation">Éducation</option>
+                <option value="Voyage">Voyage</option>
+                <option value="Mode">Mode</option>
+                <option value="Alimentation">Alimentation</option>
+                <option value="Sport">Sport</option>
+                <option value="Art">Art</option>
+                <option value="Musique">Musique</option>
+            </select>
+
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="format" class="form-label form-label-custom">Format</label>
+            <select id="format" name="format" class="form-select form-select-custom" required>
+                <option value="" disabled selected>-- Sélectionner un format --</option>
+                <option value="PDF">PDF (.pdf)</option>
+                <option value="Word">Word (.doc, .docx)</option>
+                <option value="Excel">Excel (.xls, .xlsx)</option>
+                <option value="PowerPoint">PowerPoint (.ppt, .pptx)</option>
+                <option value="TXT">Texte (.txt)</option>
+                <option value="CSV">CSV (.csv)</option>
+                <option value="RTF">RTF (.rtf)</option>
+                <option value="ODT">OpenDocument (.odt)</option>
+                <option value="EPUB">EPUB (.epub)</option>
+                <option value="Markdown">Markdown (.md)</option>
+            </select>
+
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label form-label-custom">Description</label>
+            <textarea id="description" name="description" rows="3" class="form-control form-control-custom"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-custom">Ajouter</button>
+    </form>
+</div>
