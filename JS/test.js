@@ -4,7 +4,7 @@ const axios = require("axios");
 // === CONFIGURATION GÉNÉRALE ===
 
 // URL complète de l'endpoint d'inscription
-const URL = "http://localhost:3000/register"; // ← Modifier ici
+const URL = "https://hackathon-projet.onrender.com/register"; // ← Modifier ici
 
 // Préfixes pour générer dynamiquement les utilisateurs
 const baseUsername = "UseeeeaerTaeeezest";
