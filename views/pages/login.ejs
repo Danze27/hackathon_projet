@@ -1,0 +1,26 @@
+<main class="auth-wrapper">
+  <header class="auth-header"></header>
+
+  <section class="auth-card">
+    <h1>Log&nbsp;In</h1>
+    <% if (justRegistered) { %>
+    <p class="msg success">Registration successful — you can log in.</p>
+    <% } %> <% if (error) { %>
+    <p class="msg error"><%= error %></p>
+    <% } %>
+
+    <form action="/login" method="post" class="auth-form">
+      <label for="username">Name*</label>
+      <input id="username" name="username" required />
+
+      <label for="password">Password*</label>
+      <input id="password" type="password" name="password" required />
+
+      <button type="submit" class="btn primary">Log in</button>
+
+      <button type="button" class="btn google">
+        <span class="g">G</span> &nbsp;Log in with Google
+      </button>
+    </form>
+  </section>
+</main>
