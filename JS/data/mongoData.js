@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const path = require("path");
+require("dotenv").config();
+const urlBase = process.env.dataBaseUrl;
 
 // TODO Document data
 const Document = require('../model/Document');
@@ -10,7 +13,7 @@ const categories = require('./dataCategory');
 
 module.exports = async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/Hackathon')
+        await mongoose.connect(urlBase)
         console.log('MongoDB connected');
 
         // await Document.insertMany(dataDocuments);

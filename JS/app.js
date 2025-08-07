@@ -6,6 +6,7 @@ const app = express();
 const expressLayouts = require("express-ejs-layouts");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/authRoutes");
+const currentUser = require("./middlewares/currentUser");
 
 // TODO Fichiers
 const connectMongoDB = require("./data/mongoData");
