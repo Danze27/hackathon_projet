@@ -1,0 +1,45 @@
+<main class="auth-wrapper">
+  <header class="auth-header"></header>
+
+  <section class="auth-card">
+    <h1>Sign&nbsp;Up</h1>
+
+    <% if (error) { %>
+    <p class="msg error"><%= error %></p>
+    <% } %>
+
+    <form action="/register" method="post" class="auth-form">
+      <label for="username">Name*</label>
+      <input
+        id="username"
+        name="username"
+        value="<%= (values && values.username) || '' %>"
+        required
+      />
+
+      <label for="email">Email*</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        value="<%= (values && values.email) || '' %>"
+        required
+      />
+
+      <label for="password">Password*</label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        minlength="6"
+        required
+      />
+
+      <button type="submit" class="btn primary">Sign up</button>
+
+      <button type="button" class="btn google">
+        <span class="g">G</span> &nbsp;Sign up with Google
+      </button>
+    </form>
+  </section>
+</main>

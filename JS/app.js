@@ -6,6 +6,7 @@ const app = express();
 const expressLayouts = require("express-ejs-layouts");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/authRoutes");
+const currentUser = require("./middlewares/currentUser");
 
 // TODO Fichiers
 const connectMongoDB = require("./data/mongoData");
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(cookieParser());
+app.use(currentUser);
 
 // TODO Connexion à MongoDB
 connectMongoDB();
