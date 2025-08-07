@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-const path = require("path");
-require("dotenv").config();
-const urlBase = process.env.dataBaseUrl;
 
 // TODO Document data
 const Document = require('../model/Document');
