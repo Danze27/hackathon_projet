@@ -6,6 +6,7 @@ const app = express();
 const expressLayouts = require("express-ejs-layouts");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/authRoutes");
+const methodOverride = require('method-override');
 
 // TODO Fichiers
 const connectMongoDB = require("./data/mongoData");
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use(expressLayouts);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(methodOverride('_method'));
 
 app.use(cookieParser());
 

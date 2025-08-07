@@ -14,7 +14,9 @@ router.get("/bibliotheque", controllerDocument.index);
 router.get("/ajouter-document", (req, res) => {
     res.render("pages/add-doc", { title: "Ajouter un document", categories });
 });
-
 router.post("/add-document", controllerDocument.create);
+router.delete("/delete-document/:id", controllerDocument.destroy);
+router.get("/modifier-document/:id", controllerDocument.edit);
+router.put("/modifier-document/:id", controllerDocument.update);
 
 module.exports = router;

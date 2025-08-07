@@ -1,17 +1,15 @@
-<div class="d-flex justify-content-center align-items-center p-3 border-box">
-    <form action="/add-document" method="POST"
-        class="form-container d-flex flex-column justify-content-center p-4 rounded">
-        <h3>Ajouter un document</h3>
+<div class="container my-5">
+  <div class="bg-dark text-white p-3 rounded-top">
+    <h2 class="mb-0">Modifier le document</h2>
+  </div>
 
-        <div class="mb-3">
-            <label for="name" class="form-label form-label-custom">Nom du document</label>
-            <input type="text" id="name" name="name" class="form-control form-control-custom" required />
-        </div>
+  <div class="border p-4 rounded-bottom shadow-sm">
+    <form action="/modifier-document/<%= document._id %>?_method=PUT" method="POST">
 
-        <div class="mb-3">
-            <label for="name" class="form-label form-label-custom">Fichier</label>
-            <input type="file" id="fichier" name="fichier" class="form-control form-control-custom" required />
-        </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nom du document</label>
+        <input type="text" class="form-control" id="name" name="name" value="<%= document.name %>" required>
+      </div>
 
         <div class="mb-3">
             <label for="category" class="form-label form-label-custom">Catégorie</label>
@@ -47,11 +45,15 @@
             </select>
         </div>
 
-        <div class="mb-3">
-            <label for="description" class="form-label form-label-custom">Description</label>
-            <textarea id="description" name="description" rows="3" class="form-control form-control-custom"></textarea>
-        </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="4"><%= document.description %></textarea>
+      </div>
 
-        <button type="submit" class="btn btn-custom">Ajouter</button>
+      <div class="d-flex justify-content-between">
+        <a href="/bibliotheque" class="btn btn-secondary">Annuler</a>
+        <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+      </div>
     </form>
+  </div>
 </div>
