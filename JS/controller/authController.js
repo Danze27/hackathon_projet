@@ -73,7 +73,7 @@ async function login(req, res) {
       sameSite: "Strict",
       expires: new Date(Date.now() + 3600000),
     });
-    return res.redirect("/profile");
+    return res.redirect("/bibliotheque");
   } catch (e) {
     console.error(e);
     return res.status(500).render("pages/login", {

@@ -13,6 +13,46 @@ exports.index = async (req, res) => {
     }
 }
 
+exports.edit = async (req, res) => {
+  try {
+    const document = await Document.findById(req.params.id)
+    if (!document) {
+      return res.status(404).send("Document non trouvé");
+    }
+    res.render("pages/edit-doc", { title: "Modifier un document", document });
+  } catch (err) {
+      throw err
+  }
+}
+
+exports.update = async (req, res) => {
+    try {
+        const { name, format, description, category } = req.body;
+        const documentId = req.params.id;
+
+        const existanceCategory = await Category.findOne({name: category})
+        if(!existanceCategory) {
+          return res.status(404).json({message: 'Category inconnue'})
+        }
+
+        const updatedDocument = await Document.findByIdAndUpdate(documentId, {
+            name,
+            format,
+            description,
+            category: existanceCategory._id
+        }, { new: true });
+
+        if (!updatedDocument) {
+            return res.status(404).send("Document non trouvé");
+        }
+
+        res.redirect("/bibliotheque");
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Server Error");
+    }
+}
+
 exports.destroy = async (req, res) => {
     try {
         const documentId = req.params.id;
