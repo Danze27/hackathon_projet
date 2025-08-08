@@ -1,46 +1,39 @@
-<nav
-  class="navbar navbar-expand-lg bg-turquoise"
-  style="background-color: #8ccdc1"
->
-  <div
-    class="container-fluid d-flex justify-content-between align-items-center"
-  >
+<nav class="navbar navbar-expand-lg bg-turquoise" style="background-color: #8ccdc1">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
     <!-- Logo -->
-    <img
-      src="logo.png"
-      alt="logo"
-      width="30"
-      height="30"
-      class="d-inline-block align-text-top"
-    />
+    <img src="/Design sans titre.png" alt="logo" width="50" height="50" class="d-inline-block align-text-top" />
 
     <!-- Liens -->
-    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex flex-row gap-4">
+    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex flex-row gap-4 fs-5">
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="/">Accueil</a>
+        <a class="nav-link text-white fw-bold d-flex align-items-center" href="/">
+          <i class="bi bi-house-door-fill me-2"></i> Accueil
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="/bibliotheque"
-          >Bibliothèque</a
-        >
+        <a class="nav-link text-white fw-bold d-flex align-items-center" href="/bibliotheque">
+          <i class="bi bi-book-fill me-2"></i> Bibliothèque
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white fw-bold" href="/contact">Contact</a>
+        <a class="nav-link text-white fw-bold d-flex align-items-center" href="/contact">
+          <i class="bi bi-envelope-fill me-2"></i> Contact
+        </a>
       </li>
     </ul>
 
     <!-- Bouton -->
     <div class="d-flex align-items-center gap-2">
       <% if (currentUser) { %>
-      <form action="/logout" method="post" class="m-0 p-0">
-        <button type="submit" class="btn btn-dark rounded-pill px-4">
-          Se déconnecter
-        </button>
-      </form>
-      <% } else { %>
-      <a href="/login" class="btn btn-dark rounded-pill px-4">Se connecter</a>
-      <a href="/register" class="btn btn-dark rounded-pill px-4">S'inscrire</a>
-      <% } %>
+        <form action="/logout" method="post" class="m-0 p-0">
+          <button type="submit" class="btn btn-dark rounded-pill px-4 fs-5">
+            Se déconnecter
+          </button>
+        </form>
+        <% } else { %>
+          <a href="/login" class="btn btn-dark rounded-pill px-4 fs-5">Se connecter</a>
+          <a href="/register" class="btn btn-dark rounded-pill px-4 fs-5">S'inscrire</a>
+          <% } %>
     </div>
   </div>
 </nav>
