@@ -7,13 +7,15 @@
   const cookieParser = require("cookie-parser");
   const authRoutes = require("./routes/authRoutes");
   const currentUser = require("./middlewares/currentUser");
+const methodOverride = require('method-override');
   const rateLimit = require("express-rate-limit");
   const contactRoutes = require("./controller/contact");
 
-  // TODO Fichiers
-  const connectMongoDB = require("./data/mongoData");
-  const routerPage = require("./routes/routePage");
-  const authPage = require("./routes/authRoutes");
+// TODO Fichiers
+const connectMongoDB = require("./data/mongoData");
+const routerPage = require("./routes/routePage");
+const authPage = require("./routes/authRoutes");
+app.use(methodOverride('_method'));
 
   // TODO Coniguration ejs
   app.set("view engine", "ejs");
