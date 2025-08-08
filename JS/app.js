@@ -7,11 +7,13 @@ const expressLayouts = require("express-ejs-layouts");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/authRoutes");
 const currentUser = require("./middlewares/currentUser");
+const methodOverride = require('method-override');
 
 // TODO Fichiers
 const connectMongoDB = require("./data/mongoData");
 const routerPage = require("./routes/routePage");
 const authPage = require("./routes/authRoutes");
+app.use(methodOverride('_method'));
 
 // TODO Coniguration ejs
 app.set("view engine", "ejs");
