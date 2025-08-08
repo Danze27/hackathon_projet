@@ -69,7 +69,7 @@ async function login(req, res) {
     });
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: false,
       sameSite: "Strict",
       expires: new Date(Date.now() + 3600000),
     });
