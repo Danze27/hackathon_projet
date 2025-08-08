@@ -1,0 +1,128 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.contact-page {
+  max-width: 720px;
+  margin: 64px auto 96px;
+  padding: 0 24px;
+}
+
+.contact-title {
+  font-weight: 800;
+  font-size: clamp(28px, 3.2vw, 40px);
+  line-height: 1.1;
+  text-align: center;
+  margin: 0 0 8px;
+}
+.contact-subtitle {
+  text-align: center;
+  color: #666;
+  margin: 0 0 28px;
+  font-size: 14px;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+label {
+  display: block;
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 10px 12px;
+  border: 1px solid #111;
+  border-radius: 3px;
+  background: #fff;
+  outline: none;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid rgba(17, 17, 17, 0.25);
+  outline-offset: 0;
+}
+
+.form-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.form-inline input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #111;
+}
+.form-inline a {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 12px;
+}
+.btn-primary {
+  padding: 10px 20px;
+  border: 1px solid #111;
+  background: #111;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.alert {
+  border: 1px solid;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin: 0 0 18px;
+  font-size: 14px;
+}
+.alert-success {
+  background: #ecfdf5;
+  border-color: #10b981;
+  color: #065f46;
+}
+.alert-error {
+  background: #fef2f2;
+  border-color: #ef4444;
+  color: #7f1d1d;
+}

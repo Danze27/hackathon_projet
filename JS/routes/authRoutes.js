@@ -10,6 +10,7 @@ router.get("/login", auth.showLogin);
 router.post("/login", auth.login);
 
 router.get("/profile", requireAuth, auth.profile);
+
 router.post("/logout", auth.logout);
 
 module.exports = router;

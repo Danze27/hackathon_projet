@@ -1,3 +1,4 @@
+
 <div class="container my-5">
 
   <!-- Boutons en haut -->
@@ -24,6 +25,7 @@
           <th>Description</th>
           <th>Date</th>
           <th></th>
+          <th>Commandes</th>
         </tr>
       </thead>
       <tbody>
@@ -35,6 +37,12 @@
           <td><%= doc.description %></td>
           <td><%= new Date(doc.createdAt).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }) %></td>
           <td><a href=" " class="text-primary fw-bold">Télécharger</a></td>
+          <td>
+            <form action="/delete-document/<%= doc._id %>?_method=DELETE" method="POST" onsubmit="return confirm('Confirmer la suppression ?');">
+              <button type="submit" class="btn btn-danger">Supprimer</button>
+            </form>
+            <a href="/modifier-document/<%= doc._id %>"><button class="btn btn-warning">Modifier</button></a>
+          </td>
         </tr>
         <% }) %>
       </tbody>
