@@ -9,23 +9,6 @@ const authRoutes = require("./routes/authRoutes");
 const currentUser = require("./middlewares/currentUser");
 const rateLimit = require("express-rate-limit");
 
-// Création du middleware de limitation
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  limit: 5, // Max 100 requêtes par IP pendant ce délai
-  standardHeaders: "draft-8", // Utilise les headers standard "RateLimit"
-  legacyHeaders: false, // Désactive les anciens headers X-RateLimit-*
-  ipv6Subnet: 56, // Pour limiter plus ou moins agressivement les IP v6
-
-  // Message personnalisé si la limite est dépassée
-  handler: (req, res, next, options) => {
-    res.status(options.statusCode).json({
-      status: options.statusCode,
-      error: "T'as pas le droit ! T'as dépassé la limite.",
-    });
-  },
-});
-
 // TODO Fichiers
 const connectMongoDB = require("./data/mongoData");
 const routerPage = require("./routes/routePage");
@@ -44,12 +27,30 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.use(cookieParser());
 app.use(currentUser);
-app.use(limiter);
+// app.use(limiter);
 // TODO Connexion à MongoDB
 connectMongoDB();
 
 app.use("/", routerPage);
-app.use("/", authRoutes, limiter);
+
+// Création du middleware de limitation
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  limit: 100, // Max 100 requêtes par IP pendant ce délai
+  standardHeaders: "draft-8", // Utilise les headers standard "RateLimit"
+  legacyHeaders: false, // Désactive les anciens headers X-RateLimit-*
+  ipv6Subnet: 56, // Pour limiter plus ou moins agressivement les IP v6
+
+  // Message personnalisé si la limite est dépassée
+  handler: (req, res, next, options) => {
+    res.status(options.statusCode).json({
+      status: options.statusCode,
+      error: "T'as pas le droit ! T'as dépassé la limite.",
+    });
+  },
+});
+
+app.use("/", limiter ,authRoutes);
 app.use("/", (req, res, next) => {
   console.log("Request received");
   next();
