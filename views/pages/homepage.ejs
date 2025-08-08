@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="/style.css">
     <style>
         body {
+
     font-size: 1.1rem;
 }
 
@@ -18,6 +20,18 @@
 
     </style>
 </head>
+
+            font-size: 1.1rem;
+        }
+
+        :focus {
+            outline: 3px solid orange;
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+
+
 <body class="bg-light text-dark">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -36,6 +50,7 @@
         </div>
 
         <div class="row">
+
             <% documents.forEach(doc => { %>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
@@ -44,12 +59,30 @@
                             <p class="card-text">
                                 <strong>Format :</strong> <%= doc.format %><br>
                                 <strong>Accessibilité :</strong> <%= doc.access %>
+
+            <% documents.forEach(doc=> { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= doc.titre %>
+                            </h5>
+                            <p class="card-text">
+                                <strong>Format :</strong>
+                                <%= doc.format %><br>
+                                    <strong>Accessibilité :</strong>
+                                    <%= doc.access %>
+
                             </p>
                             <a href="#" class="btn btn-primary">Lire / Écouter</a>
                         </div>
                     </div>
                 </div>
+
             <% }) %>
+
+                <% }) %>
+
         </div>
     </main>
 
@@ -58,4 +91,9 @@
     </footer>
 
 </body>
+
 </html>
+
+
+</html>
+
