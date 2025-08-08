@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/authRoutes");
 const currentUser = require("./middlewares/currentUser");
 const rateLimit = require("express-rate-limit");
+const contactRoutes = require("./controller/contact");
 
 // TODO Fichiers
 const connectMongoDB = require("./data/mongoData");
@@ -49,8 +50,8 @@ const limiter = rateLimit({
     });
   },
 });
-
-app.use("/", limiter ,authRoutes);
+app.use("/contact", contactRoutes);
+app.use("/", limiter, authRoutes);
 app.use("/", (req, res, next) => {
   console.log("Request received");
   next();
